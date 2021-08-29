@@ -10,9 +10,10 @@
 	input:
 		pbook: phone book pointer
 	
-	output: none
+	output: 
+		address of inserted data
 */
-void insert_phone_data(struct phone_book *pbook)
+struct phone_data *insert_phone_data(struct phone_book *pbook)
 {
 	char name[NAME_LEN];
 	char phone[PHONE_LEN];
@@ -39,8 +40,7 @@ void insert_phone_data(struct phone_book *pbook)
 		
 		if (strcmp(tmp->phone, phone) == 0) {
 			printf("이미 존재하는 데이터입니다.\n");
-			getchar();
-			return;
+			return NULL;
 		}
 		
 		tmp = next_data(tmp);
@@ -51,7 +51,8 @@ void insert_phone_data(struct phone_book *pbook)
 	insert_data(pbook, tmp);
 	
 	printf("등록이 완료되었습니다.\n");
-	getchar();
+	
+	return tmp;
 }
 
 /* 

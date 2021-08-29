@@ -3,7 +3,7 @@
 
 #include "phoneData.h"
 
-void insert_phone_data(struct phone_book *pbook);
+struct phone_data *insert_phone_data(struct phone_book *pbook);
 void show_phone_book(struct phone_book *pbook);
 void search_phone_data(struct phone_book *pbook);
 void delete_phone_data(struct phone_book *pbook);
